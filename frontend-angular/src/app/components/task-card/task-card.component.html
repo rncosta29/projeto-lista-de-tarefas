@@ -1,0 +1,11 @@
+<div [ngClass]="[date < dataAtual ? 'atrasado' : 'container']" (click)="navigateToDetails(id)">
+  <div class="top-card">
+    <img [src]="tipo[type]" alt="Icone da tarefa" />
+    <h3> {{title}} </h3>
+  </div>
+
+  <div class="bottom-card">
+    <strong> {{data}} </strong>
+    <span> {{hora}} </span>
+  </div>
+</div>

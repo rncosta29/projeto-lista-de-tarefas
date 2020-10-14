@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>Cadastre-se e crie tarefas para nunca esquecer!!!</h1>
+  <form [formGroup]="registerForm">
+    <div class="input">
+      <span>Nome</span>
+      <input
+        type="text"
+        placeholder="Digite seu nome..."
+        formControlName="nome"
+        value=""
+      />
+    </div>
+
+    <div class="input">
+      <span>E-mail</span>
+      <input
+        type="email"
+        placeholder="digite seu email..."
+        formControlName="email"
+        value=""
+      />
+    </div>
+
+    <div class="input">
+      <span>CPF</span>
+      <input
+        type="text"
+        placeholder="Somente digitos"
+        formControlName="cpf"
+        value=""
+      />
+    </div>
+
+    <div class="input">
+      <span>Digite sua senha</span>
+      <input
+        type="password"
+        placeholder="Senha de 6 digitos"
+        formControlName="senha"
+      />
+    </div>
+
+    <div class="input">
+      <span>Confirme sua senha</span>
+      <input
+        type="text"
+        placeholder="Confirme sua senha"
+        formControlName="confirmarSenha"
+        value=""
+      />
+    </div>
+
+    <div class="login">
+      <button type="button" (click)="voltar()">Voltar</button>
+      <button type="submit" (click)="submit()">Cadastrar</button>
+    </div>
+  </form>
+</div>

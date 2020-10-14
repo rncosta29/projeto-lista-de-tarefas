@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Faça login e veja suas tarefas e cadastre novas tarefas</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <div class="input">
+      <span>CPF</span>
+      <input
+        type="text"
+        placeholder="Somente digitos"
+        formControlName="cpf"
+        value={{cpf}}
+      />
+    </div>
+
+    <div class="input">
+      <span>Digite sua senha</span>
+      <input
+        type="password"
+        placeholder="Senha de 6 digitos"
+        formControlName="senha"
+        value={{senha}}
+      />
+    </div>
+
+    <div class="login">
+      <a href="register">Registre-se grátis!!</a>
+      <button>Logar</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,64 @@
+<app-header></app-header>
+<div class="container">
+  <form [formGroup]="cadastroForm" (ngSubmit)="submit()">
+    <div class="type-icons">
+      <div *ngFor="let type of tipo; let i = index">
+        <button type="button" *ngIf="i > 0" (click)="selecionarIcone(i)">
+          <img [src]="type" alt="Tipo de Tarefa" [ngClass]="[i !== numberIcon ? '' : 'inative']" />
+        </button>
+      </div>
+    </div>
+
+    <div class="input">
+      <span>Título</span>
+      <input
+        type="text"
+        placeholder="Titulo da tarefa..."
+        formControlName="title"
+        value="{{title}}"
+      />
+    </div>
+
+    <div class="text-area">
+      <span>Descrição</span>
+      <textarea
+        rows="5"
+        placeholder="Detalhes da tarefa..."
+        formControlName="description"
+      >
+      </textarea>
+    </div>
+
+    <div class="input">
+      <span>Data</span>
+      <input
+        type="date"
+        value={{data}}
+        formControlName="date"
+      />
+      <img [src]="iconCalendar" />
+    </div>
+
+    <div class="input">
+      <span>Hora</span>
+      <input
+        type="time"
+        value={{hora}}
+        formControlName="time"
+      />
+      <img [src]="iconClock" />
+    </div>
+
+    <div class="options">
+      <div>
+        <input type="checkbox" />
+        <span>Concluido</span>
+      </div>
+    </div>
+
+    <div class="save" >
+    <button type="button" (click)="submit()">Salvar</button>
+    </div>
+  </form>
+</div>
+<app-footer></app-footer>

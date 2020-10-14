@@ -1,0 +1,21 @@
+<div class="header">
+  <div class="left-side">
+    <img [src]="logo" alt="logo" style="width: 100px; height: 40px;" />
+  </div>
+
+  <div class="right-side">
+    <a (click)="navegacao('home') ">INICIO</a>
+    <span class="dividir"></span>
+
+    <a (click)="navegacao('task')">NOVA TAREFA</a>
+    <span class="dividir"></span>
+
+    <a href="">SINCRONIZAR CELULAR</a>
+    <span class="dividir"></span>
+
+    <button (click)="exibirAtrasados()">
+      <img [src]="bell" alt="Notificação" style="width: 25px; height: 30px;" />
+      <span class="span-warning">{{late}}</span>
+    </button>
+  </div>
+</div>

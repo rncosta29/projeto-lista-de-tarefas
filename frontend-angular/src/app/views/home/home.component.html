@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="fixed-top">
+    <app-header (filterActived)="onLate($event)"></app-header>
+  </div>
+
+  <div class="filter-area">
+    <button type="button" (click)="onAll()">
+      <app-filter-card [title]="'Todos'" [myFilter]="filterAll"></app-filter-card>
+    </button>
+
+    <button type="button" (click)="onToday()">
+      <app-filter-card [title]="'Hoje'" [myFilter]="filterToday"></app-filter-card>
+    </button>
+
+    <button type="button" (click)="onWeek()">
+      <app-filter-card [title]="'Semana'" [myFilter]="filterWeek"></app-filter-card>
+    </button>
+
+    <button type="button" (click)="onMonth()">
+      <app-filter-card [title]="'Mês'" [myFilter]="filterMonth"></app-filter-card>
+    </button>
+
+    <button type="button" (click)="onYear()">
+      <app-filter-card [title]="'Ano'" [myFilter]="filterYear"></app-filter-card>
+    </button>
+  </div>
+
+  <div class="title">
+    <h3>TAREFAS</h3>
+  </div>
+
+  <div class="content">
+    <app-task-card
+      *ngFor="let task of taskModel; let i = index;"
+      [title]="taskModel[i].title"
+      [date]="taskModel[i].when"
+      [type]="taskModel[i].type"
+      [id]="taskModel[i].id"
+    >
+    </app-task-card>
+  </div>
+
+  <div class="fixed-bottom">
+    <app-footer></app-footer>
+  </div>
+</div>
