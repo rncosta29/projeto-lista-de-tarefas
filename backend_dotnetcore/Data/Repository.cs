@@ -39,7 +39,7 @@ namespace backend_dotnetcore.Data
 
         public async Task<UserModel[]> GetAllUsers()
         {
-            IQueryable<UserModel> query = _context.Users;
+            IQueryable<UserModel> query = _context.Usuario;
 
             query = query.AsNoTracking()
                 .OrderBy(user => user.Name);
@@ -60,7 +60,7 @@ namespace backend_dotnetcore.Data
 
         public async Task<UserModel> GetUserByCpf(long cpf)
         {
-            IQueryable<UserModel> query = _context.Users;
+            IQueryable<UserModel> query = _context.Usuario;
 
             query = query.AsNoTracking()
                 .OrderBy(user => user.Id)
@@ -71,7 +71,7 @@ namespace backend_dotnetcore.Data
 
         public async Task<UserModel> GetUserById(string id)
         {
-            IQueryable<UserModel> query = _context.Users;
+            IQueryable<UserModel> query = _context.Usuario;
 
             query = query.AsNoTracking()
                 .OrderBy(user => user.Id)

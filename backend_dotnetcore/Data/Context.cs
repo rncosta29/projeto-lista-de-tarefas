@@ -1,17 +1,18 @@
 ﻿using backend_dotnetcore.Mapeamento;
 using backend_dotnetcore.Model;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace backend_dotnetcore.Data
 {
-    public class Context : DbContext
+    public class Context : IdentityDbContext
     {
+        public DbSet<UserModel> Usuario { get; set; }
         public DbSet<TaskModel> Tasks { get; set; }
-        public DbSet<UserModel> Users { get; set; }
+
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+
 
         public Context(DbContextOptions<Context> options) : base(options)
         {

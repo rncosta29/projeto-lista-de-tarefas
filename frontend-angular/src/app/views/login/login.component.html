@@ -2,9 +2,9 @@
   <h1>Faça login e veja suas tarefas e cadastre novas tarefas</h1>
   <form [formGroup]="loginForm" (ngSubmit)="submit()">
     <div class="input">
-      <span>CPF</span>
+      <span>Email</span>
       <input
-        type="text"
+        type="number"
         placeholder="Somente digitos"
         formControlName="cpf"
         value={{cpf}}

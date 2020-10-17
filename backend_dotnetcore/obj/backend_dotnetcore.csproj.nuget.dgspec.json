@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\Lista de Tarefas\\backend_dotnetcore\\backend_dotnetcore.csproj": {}
+    "C:\\Projetos\\ToDo\\backend_dotnetcore\\backend_dotnetcore.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\Lista de Tarefas\\backend_dotnetcore\\backend_dotnetcore.csproj": {
+    "C:\\Projetos\\ToDo\\backend_dotnetcore\\backend_dotnetcore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\Lista de Tarefas\\backend_dotnetcore\\backend_dotnetcore.csproj",
+        "projectUniqueName": "C:\\Projetos\\ToDo\\backend_dotnetcore\\backend_dotnetcore.csproj",
         "projectName": "backend_dotnetcore",
-        "projectPath": "C:\\Projetos\\Lista de Tarefas\\backend_dotnetcore\\backend_dotnetcore.csproj",
+        "projectPath": "C:\\Projetos\\ToDo\\backend_dotnetcore\\backend_dotnetcore.csproj",
         "packagesPath": "C:\\Users\\rafael.costa\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\Lista de Tarefas\\backend_dotnetcore\\obj\\",
+        "outputPath": "C:\\Projetos\\ToDo\\backend_dotnetcore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rafael.costa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,29 +38,41 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNet.Identity.EntityFramework": {
+              "target": "Package",
+              "version": "[2.2.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.7, )"
+              "version": "[3.1.9, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.7, )"
+              "version": "[3.1.9, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.7, )"
+              "version": "[3.1.9, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[3.1.7, )"
+              "version": "[3.1.9, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.7, )"
+              "version": "[3.1.9, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
@@ -68,15 +80,15 @@
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
-              "version": "[5.5.1, )"
+              "version": "[5.6.3, )"
             },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
-              "version": "[5.5.1, )"
+              "version": "[5.6.3, )"
             },
             "Swashbuckle.AspNetCore.SwaggerUi": {
               "target": "Package",
-              "version": "[5.5.1, )"
+              "version": "[5.6.3, )"
             }
           },
           "imports": [

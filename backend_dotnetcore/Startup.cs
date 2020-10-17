@@ -1,18 +1,19 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
+using System.Text;
 using backend_dotnetcore.Data;
+using backend_dotnetcore.Model;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 namespace backend_dotnetcore
@@ -27,6 +28,7 @@ namespace backend_dotnetcore
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Context>(opcoes => opcoes.UseSqlite(Configuration.GetConnectionString("ConexaoDB")));
@@ -51,6 +53,23 @@ namespace backend_dotnetcore
                 c.IncludeXmlComments(xmlPath);
             });
 
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<Context>()
+                .AddDefaultTokenProviders();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>
+            {
+                option.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["jwt:key"])),
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+
             services.AddScoped<IRepository, Repository>();
             services.AddCors();
             services.AddControllers();
@@ -65,7 +84,6 @@ namespace backend_dotnetcore
             }
 
             app.UseRouting();
-
             app.UseAuthorization();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
